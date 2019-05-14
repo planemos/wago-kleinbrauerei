@@ -1,0 +1,491 @@
+[
+  {
+    "id": "3d17c8f5.fe866",
+    "type": "udp in",
+    "z": "a5420bc6.d38a58",
+    "name": "",
+    "iface": "",
+    "port": "1202",
+    "ipv": "udp4",
+    "multicast": "false",
+    "group": "",
+    "datatype": "buffer",
+    "x": 210,
+    "y": 170,
+    "wires": [
+      [
+        "7a36595.a9c4c28"
+      ]
+    ]
+  },
+  {
+    "id": "7a36595.a9c4c28",
+    "type": "netvar-receiver",
+    "z": "a5420bc6.d38a58",
+    "index": "1",
+    "vars": "xVal1:BOOL;bVal1:BYTE;wVal1:WORD;iVal1:INT;dwVal1:DWORD;rVal1:REAL;sVal1:STRING;",
+    "x": 450,
+    "y": 170,
+    "wires": [
+      [
+        "b6e9f4c8.2b833"
+      ]
+    ]
+  },
+  {
+    "id": "b6e9f4c8.2b833",
+    "type": "function",
+    "z": "a5420bc6.d38a58",
+    "name": "Split Array",
+    "func": "var msg_o = {};\n\nmsg_o = {\n    [msg.payload[0][0]] : Boolean(msg.payload[0][2]),\n    [msg.payload[1][0]] : msg.payload[1][2],\n    [msg.payload[2][0]] : msg.payload[2][2],\n    [msg.payload[3][0]] : msg.payload[3][2],\n    [msg.payload[4][0]] : msg.payload[4][2],\n    [msg.payload[5][0]] : msg.payload[5][2],\n    [msg.payload[6][0]] : msg.payload[6][2],\n};\n\nreturn [msg_o];",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 430,
+    "y": 410,
+    "wires": [
+      [
+        "8a5679fc.5ec478",
+        "5ea7693f.dd36c",
+        "4bd64a22.baa124",
+        "cc34d168.52e5e",
+        "8cc8b153.0e9a2",
+        "2d6c3762.9fdc38",
+        "37debc07.fdc25c"
+      ]
+    ]
+  },
+  {
+    "id": "8a5679fc.5ec478",
+    "type": "change",
+    "z": "a5420bc6.d38a58",
+    "name": "xVal1",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "xVal1",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 640,
+    "y": 290,
+    "wires": [
+      [
+        "2e3a4201.2962ee"
+      ]
+    ]
+  },
+  {
+    "id": "5ea7693f.dd36c",
+    "type": "change",
+    "z": "a5420bc6.d38a58",
+    "name": "bVal1",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "bVal1",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 640,
+    "y": 330,
+    "wires": [
+      [
+        "72184979.166728"
+      ]
+    ]
+  },
+  {
+    "id": "4bd64a22.baa124",
+    "type": "change",
+    "z": "a5420bc6.d38a58",
+    "name": "wVal1",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "wVal1",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 640,
+    "y": 370,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "cc34d168.52e5e",
+    "type": "change",
+    "z": "a5420bc6.d38a58",
+    "name": "iVal1",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "iVal1",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 640,
+    "y": 410,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "8cc8b153.0e9a2",
+    "type": "change",
+    "z": "a5420bc6.d38a58",
+    "name": "dwVal1",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "dwVal1",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 650,
+    "y": 450,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "2d6c3762.9fdc38",
+    "type": "change",
+    "z": "a5420bc6.d38a58",
+    "name": "rVal1",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "rVal1",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 640,
+    "y": 490,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "37debc07.fdc25c",
+    "type": "change",
+    "z": "a5420bc6.d38a58",
+    "name": "sVal1",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "sVal1",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 640,
+    "y": 530,
+    "wires": [
+      [
+        "cfda7da6.a1185"
+      ]
+    ]
+  },
+  {
+    "id": "2e3a4201.2962ee",
+    "type": "ui_switch",
+    "z": "a5420bc6.d38a58",
+    "name": "",
+    "label": "xVal1",
+    "tooltip": "",
+    "group": "f15fa5ec.b7c4b",
+    "order": 2,
+    "width": 0,
+    "height": 0,
+    "passthru": true,
+    "decouple": "false",
+    "topic": "",
+    "style": "",
+    "onvalue": "true",
+    "onvalueType": "bool",
+    "onicon": "",
+    "oncolor": "",
+    "offvalue": "false",
+    "offvalueType": "bool",
+    "officon": "",
+    "offcolor": "",
+    "x": 1060,
+    "y": 290,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "1ee1b02.f9735d",
+    "type": "ui_chart",
+    "z": "a5420bc6.d38a58",
+    "name": "",
+    "group": "f15fa5ec.b7c4b",
+    "order": 3,
+    "width": 0,
+    "height": 0,
+    "label": "bVal1",
+    "chartType": "line",
+    "legend": "false",
+    "xformat": "HH:mm:ss",
+    "interpolate": "linear",
+    "nodata": "",
+    "dot": false,
+    "ymin": "",
+    "ymax": "",
+    "removeOlder": "30",
+    "removeOlderPoints": "",
+    "removeOlderUnit": "1",
+    "cutout": 0,
+    "useOneColor": false,
+    "colors": [
+      "#1f77b4",
+      "#aec7e8",
+      "#ff7f0e",
+      "#2ca02c",
+      "#98df8a",
+      "#d62728",
+      "#ff9896",
+      "#9467bd",
+      "#c5b0d5"
+    ],
+    "useOldStyle": false,
+    "outputs": 1,
+    "x": 1060,
+    "y": 330,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "cfda7da6.a1185",
+    "type": "ui_text",
+    "z": "a5420bc6.d38a58",
+    "group": "f15fa5ec.b7c4b",
+    "order": 4,
+    "width": 0,
+    "height": 0,
+    "name": "",
+    "label": "sVal1",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "x": 1060,
+    "y": 530,
+    "wires": []
+  },
+  {
+    "id": "72184979.166728",
+    "type": "delay",
+    "z": "a5420bc6.d38a58",
+    "name": "",
+    "pauseType": "rate",
+    "timeout": "5",
+    "timeoutUnits": "seconds",
+    "rate": "1",
+    "nbRateUnits": "0.5",
+    "rateUnits": "second",
+    "randomFirst": "1",
+    "randomLast": "5",
+    "randomUnits": "seconds",
+    "drop": true,
+    "x": 850,
+    "y": 330,
+    "wires": [
+      [
+        "1ee1b02.f9735d"
+      ]
+    ]
+  },
+  {
+    "id": "e972c21.f06d8c",
+    "type": "inject",
+    "z": "a5420bc6.d38a58",
+    "name": "init",
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "x": 150,
+    "y": 710,
+    "wires": [
+      [
+        "9d074041.cc8f08"
+      ]
+    ]
+  },
+  {
+    "id": "9d074041.cc8f08",
+    "type": "trigger",
+    "z": "a5420bc6.d38a58",
+    "op1": "1",
+    "op2": "0",
+    "op1type": "str",
+    "op2type": "str",
+    "duration": "-50",
+    "extend": false,
+    "units": "ms",
+    "reset": "",
+    "bytopic": "all",
+    "name": "",
+    "x": 340,
+    "y": 710,
+    "wires": [
+      [
+        "67b67ddb.be19e4"
+      ]
+    ]
+  },
+  {
+    "id": "2259d43f.459bc4",
+    "type": "debug",
+    "z": "a5420bc6.d38a58",
+    "name": "",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "x": 850,
+    "y": 670,
+    "wires": []
+  },
+  {
+    "id": "67b67ddb.be19e4",
+    "type": "function",
+    "z": "a5420bc6.d38a58",
+    "name": "Build Array",
+    "func": "var msg_o = {};\n\nvar xVal2 = global.get('xVal2')||0;\nvar bVal2 = global.get('bVal2')||0;\nvar wVal2 = global.get('wVal2')||0;\nvar iVal2 = global.get('iVal2')||0;\nvar dwVal2 = global.get('dwVal2')||0;\nvar rVal2 = global.get('rVal2')||0;\nvar sVal2 = global.get('sVal2')||\"empty_JMA\";\n\nbVal2 = bVal2 + 1;\nif (bVal2 > 254){\n    bVal2 = 0;\n}\nglobal.set('bVal2',bVal2);\n\nvar arr = [\n    [\"xVal2\",\"BOOL\",xVal2],\n    [\"bVal2\",\"BYTE\",bVal2],\n    [\"wVal2\",\"WORD\",wVal2],\n    [\"iVal2\",\"INT\",iVal2],\n    [\"dwVal2\",\"DWORD\",dwVal2],\n    [\"rVal2\",\"REAL\",rVal2],\n    [\"sVal2\",\"STRING\",sVal2],\n    ];\nmsg_o.payload = arr;\nreturn msg_o;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 640,
+    "y": 710,
+    "wires": [
+      [
+        "d6dcb593.54644",
+        "2259d43f.459bc4"
+      ]
+    ]
+  },
+  {
+    "id": "d6dcb593.54644",
+    "type": "netvar-sender",
+    "z": "a5420bc6.d38a58",
+    "index": "3",
+    "idnum": "291809472",
+    "x": 870,
+    "y": 710,
+    "wires": [
+      [
+        "9a9a0419.997928"
+      ]
+    ]
+  },
+  {
+    "id": "9a9a0419.997928",
+    "type": "udp out",
+    "z": "a5420bc6.d38a58",
+    "name": "",
+    "addr": "192.168.100.17",
+    "iface": "",
+    "port": "1202",
+    "ipv": "udp4",
+    "outport": "",
+    "base64": false,
+    "multicast": "false",
+    "x": 1120,
+    "y": 710,
+    "wires": []
+  },
+  {
+    "id": "73664e28.8310b8",
+    "type": "comment",
+    "z": "a5420bc6.d38a58",
+    "name": "This node seems to recieve all UDP-Packages which are on this IP and Port",
+    "info": "",
+    "x": 640,
+    "y": 130,
+    "wires": []
+  },
+  {
+    "id": "fc1f18f7.8ef42",
+    "type": "comment",
+    "z": "a5420bc6.d38a58",
+    "name": "When creating the \"Recieve-List\" in e!COCKPIT, the entire UDP-Communication seems to get bricked.",
+    "info": "",
+    "x": 970,
+    "y": 620,
+    "wires": []
+  },
+  {
+    "id": "f15fa5ec.b7c4b",
+    "type": "ui_group",
+    "z": "",
+    "name": "Reciever",
+    "tab": "d4b6f54e.12065",
+    "disp": true,
+    "width": "6",
+    "collapse": false
+  },
+  {
+    "id": "d4b6f54e.12065",
+    "type": "ui_tab",
+    "z": "",
+    "name": "Home",
+    "icon": "dashboard",
+    "disabled": false,
+    "hidden": false
+  }
+]
