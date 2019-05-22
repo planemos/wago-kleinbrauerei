@@ -1,0 +1,43 @@
+version: "3"
+
+services:
+  node-red:
+    image: "nodered/node-red-docker:rpi-v8"
+    ports:
+      - "1880:1880"
+    network_mode: "host"
+    volumes:
+      - node_red_user_data:/data
+    restart: "unless-stopped"
+    depends_on:
+      - db
+
+  db:
+    image: "hypriot/rpi-mysql"
+    ports:
+      - "${DATABASE_PORT_HOST}:${DATABASE_PORT_CONTAINER}"
+    network_mode: "host"
+    environment:
+      MYSQL_ROOT_USER: ${DATABASE_ROOT_USER}
+      MYSQL_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DATABASE_NAME}
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: "unless-stopped"
+  mosquitto:
+    image: eclipse-mosquitto
+    hostname: mosquitto
+    container_name: mosquitto
+    expose:
+      - "1883"
+      - "9001"
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+    networks:
+      - default
+volumes:
+  node_red_user_data:
+  db_data:
