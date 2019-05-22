@@ -1,4 +1,4 @@
-# node-red-brewery
+# node-red-brewery based on WAGO PFC200 and Docker
 Concept and code-snippets for brewery-automation with node-red
 
 The automation-project will heavily rely on the concept of finite-state-machines (FSM) and hierachical-state-machines (HSM).
