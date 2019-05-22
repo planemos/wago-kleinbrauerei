@@ -7,6 +7,4 @@ https://www.automation.com/library/articles-white-papers/process-control-process
 
 In Node-Red, the Module "node-red-contrib-state-machine" in Version 1.2.0 will be utilized.
 
-It is a mixture of learning and product-development for me, feel free to add to the project if you want to!
-Cheers
-- Jan
+It is a mixture of learning and product-development for us, feel free to contribute to the project if you want to!
