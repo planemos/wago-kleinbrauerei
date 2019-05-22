@@ -1,0 +1,173 @@
+[
+    {
+        "id": "84f5d0ed.4cf728",
+        "type": "FSM",
+        "z": "9fec4591.9dac68",
+        "name": "Valve",
+        "topic": "FSM",
+        "initstate": "INIT",
+        "inittran": "INIT__evt_INIT__INIT",
+        "entry": false,
+        "exit": false,
+        "tran": true,
+        "rules": [
+            {
+                "n": "CLOSED_evt_error",
+                "c": "evt_error",
+                "s": "CLOSED",
+                "d": "FAULT",
+                "t": "true"
+            },
+            {
+                "n": "CLOSED_evt_opened",
+                "c": "evt_opened",
+                "s": "CLOSED",
+                "d": "FAULT",
+                "t": "true"
+            },
+            {
+                "n": "CLOSED__cmd_open__OPENING__close;start_timer_closing",
+                "c": "cmd_open",
+                "s": "CLOSED",
+                "d": "OPENING",
+                "t": "true"
+            },
+            {
+                "n": "INIT__cmd_close__CLOSING__close;start_timer_closing",
+                "c": "cmd_close",
+                "s": "INIT",
+                "d": "CLOSING",
+                "t": "true"
+            },
+            {
+                "n": "INIT__cmd_open__OPENING__open;start_timer_opening",
+                "c": "cmd_open",
+                "s": "INIT",
+                "d": "OPENING",
+                "t": "true"
+            },
+            {
+                "n": "OPENING__evt_opened__OPEN",
+                "c": "evt_opened",
+                "s": "OPENING",
+                "d": "OPEN",
+                "t": "true"
+            },
+            {
+                "n": "OPENING__cmd_reset__INIT",
+                "c": "cmd_reset",
+                "s": "OPENING",
+                "d": "INIT",
+                "t": "true"
+            }
+        ],
+        "x": 560,
+        "y": 410,
+        "wires": [
+            [
+                "990c46e.addb438",
+                "c484ff93.27c26"
+            ]
+        ]
+    },
+    {
+        "id": "990c46e.addb438",
+        "type": "debug",
+        "z": "9fec4591.9dac68",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1130,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "1c65a6b6.b925e9",
+        "type": "inject",
+        "z": "9fec4591.9dac68",
+        "name": "",
+        "topic": "cmd_open",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 260,
+        "y": 360,
+        "wires": [
+            [
+                "84f5d0ed.4cf728",
+                "bc48324d.0f9b08"
+            ]
+        ]
+    },
+    {
+        "id": "bc48324d.0f9b08",
+        "type": "debug",
+        "z": "9fec4591.9dac68",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1130,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "1cb64698.520419",
+        "type": "inject",
+        "z": "9fec4591.9dac68",
+        "name": "",
+        "topic": "cmd_reset",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 260,
+        "y": 410,
+        "wires": [
+            [
+                "84f5d0ed.4cf728"
+            ]
+        ]
+    },
+    {
+        "id": "c484ff93.27c26",
+        "type": "function",
+        "z": "9fec4591.9dac68",
+        "name": "Split fsm transition into message parts",
+        "func": "var parts = [];\n\nparts = msg.payload.split(\"__\");\n\n// Assign previous state if existent\nif(parts[0] !== void 0){\n    msg.previous_state = parts[0];\n}\n\n// Assign event or comand which caused state transition\nif(parts[1] !== void 0){\n    msg.trigger = parts[1];\n}\n\n// Assign new state if existent\nif(parts[2] !== void 0){\n    msg.state = parts[2];\n}\n\n// Assign actions if existent\nif(parts[3] !== void 0){\n    msg.actions = parts[3].split(';');\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 820,
+        "y": 410,
+        "wires": [
+            [
+                "81d3ddb5.dfbd98"
+            ]
+        ]
+    },
+    {
+        "id": "81d3ddb5.dfbd98",
+        "type": "debug",
+        "z": "9fec4591.9dac68",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 1120,
+        "y": 410,
+        "wires": []
+    }
+]
