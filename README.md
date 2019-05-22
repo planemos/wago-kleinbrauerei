@@ -7,4 +7,6 @@ https://www.automation.com/library/articles-white-papers/process-control-process
 
 In Node-Red, the Module "node-red-contrib-state-machine" in Version 1.2.0 will be utilized.
 
+The Class-Diagramm and Project-Architecture is visualized using UMLet (https://www.umlet.com/).
+
 It is a mixture of learning and product-development for us, feel free to contribute to the project if you want to!
