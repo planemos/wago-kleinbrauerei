@@ -1,0 +1,345 @@
+[
+    {
+        "id": "5a400f52.8b3c7",
+        "type": "modbus-read",
+        "z": "d17a3bee.75dca",
+        "name": "WAGO PFC DO_01 und DO_02",
+        "topic": "DO-Register lesen",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "unitid": "",
+        "dataType": "Coil",
+        "adr": "512",
+        "quantity": "2",
+        "rate": "1000",
+        "rateUnit": "ms",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "a3cf8698.e5c628",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "x": 590,
+        "y": 210,
+        "wires": [
+            [
+                "d67fe1ca.564698",
+                "395f225e.fe5536"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d67fe1ca.564698",
+        "type": "debug",
+        "z": "d17a3bee.75dca",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 850,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "210609c6.b9206e",
+        "type": "modbus-write",
+        "z": "d17a3bee.75dca",
+        "name": "WAGO PFC DO_01",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "unitid": "",
+        "dataType": "Coil",
+        "adr": "512",
+        "quantity": "1",
+        "server": "a3cf8698.e5c628",
+        "x": 540,
+        "y": 350,
+        "wires": [
+            [
+                "6a34ac02.28e91c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4a8a3ac7.eec6b4",
+        "type": "ui_switch",
+        "z": "d17a3bee.75dca",
+        "name": "DO_01",
+        "label": "DO_01",
+        "tooltip": "",
+        "group": "f15fa5ec.b7c4b",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "01",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 300,
+        "y": 350,
+        "wires": [
+            [
+                "210609c6.b9206e"
+            ]
+        ]
+    },
+    {
+        "id": "b50497d9.52d808",
+        "type": "ui_switch",
+        "z": "d17a3bee.75dca",
+        "name": "DO_02",
+        "label": "DO_02",
+        "tooltip": "",
+        "group": "f15fa5ec.b7c4b",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "02",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 300,
+        "y": 390,
+        "wires": [
+            [
+                "33d7179c.e55ec"
+            ]
+        ]
+    },
+    {
+        "id": "6a34ac02.28e91c",
+        "type": "debug",
+        "z": "d17a3bee.75dca",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 840,
+        "y": 350,
+        "wires": []
+    },
+    {
+        "id": "c31ed01a.e01ed",
+        "type": "inject",
+        "z": "d17a3bee.75dca",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "4a8a3ac7.eec6b4"
+            ]
+        ]
+    },
+    {
+        "id": "93f11905.b9564",
+        "type": "inject",
+        "z": "d17a3bee.75dca",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 120,
+        "y": 360,
+        "wires": [
+            [
+                "4a8a3ac7.eec6b4"
+            ]
+        ]
+    },
+    {
+        "id": "33d7179c.e55ec",
+        "type": "modbus-write",
+        "z": "d17a3bee.75dca",
+        "name": "WAGO PFC DO_02",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "unitid": "",
+        "dataType": "Coil",
+        "adr": "513",
+        "quantity": "1",
+        "server": "a3cf8698.e5c628",
+        "x": 540,
+        "y": 390,
+        "wires": [
+            [
+                "6a34ac02.28e91c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "62e77683.85912",
+        "type": "inject",
+        "z": "d17a3bee.75dca",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 420,
+        "wires": [
+            [
+                "b50497d9.52d808"
+            ]
+        ]
+    },
+    {
+        "id": "e160b2c3.2f7748",
+        "type": "inject",
+        "z": "d17a3bee.75dca",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 460,
+        "wires": [
+            [
+                "b50497d9.52d808"
+            ]
+        ]
+    },
+    {
+        "id": "171973d0.88f48c",
+        "type": "comment",
+        "z": "d17a3bee.75dca",
+        "name": "Direct modbus-communication without e!COCKPIT",
+        "info": "This is how we can write the modbus-registers for the DOs directly. \n\nATTENTION: For this to work the pfc-modbusslave (https://hub.docker.com/r/wagoautomation/pfc-modbusslave) Container must be up and running!\nAlso in the WBM, the PLC-Runtime must be set to none but the Controller swicth must pyhsicaly be in the \"RUN\" position.\n\nSee also: https://www.wago.com/medias/m07500352-xxxxxxxx-0de.pdf?context=bWFzdGVyfGRvd25sb2Fkc3w5Mzg2OTQ0fGFwcGxpY2F0aW9uL3BkZnxkb3dubG9hZHMvaDgxL2hkYi85NTY1MjQzNzM2MDk0LnBkZnw4MzM5MzllMmJiNTQyNjlkMGMyNzQ4YWJlNmJmZWY2OTQyMWMzZTE1OTJiZmM1MTE5YjQxNjYyYjUxYjdiMGQx&attachment=true",
+        "x": 230,
+        "y": 50,
+        "wires": []
+    },
+    {
+        "id": "6d55315b.cef0b",
+        "type": "comment",
+        "z": "d17a3bee.75dca",
+        "name": "Idea: Maybe submit an entire Array instead of single bits.",
+        "info": "",
+        "x": 460,
+        "y": 510,
+        "wires": []
+    },
+    {
+        "id": "e2af2986.07083",
+        "type": "comment",
+        "z": "d17a3bee.75dca",
+        "name": "Write commands via modbus",
+        "info": "",
+        "x": 360,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "56084975.d7b528",
+        "type": "comment",
+        "z": "d17a3bee.75dca",
+        "name": "Read the state via modbus",
+        "info": "",
+        "x": 350,
+        "y": 150,
+        "wires": []
+    },
+    {
+        "id": "395f225e.fe5536",
+        "type": "ui_text",
+        "z": "d17a3bee.75dca",
+        "group": "f15fa5ec.b7c4b",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "DO_Status_Textoutput",
+        "label": "Status of the DOs (Modbus-Poll)",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 880,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "a3cf8698.e5c628",
+        "type": "modbus-client",
+        "z": "",
+        "name": "WAGO PFC200",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "tcpHost": "192.168.100.134",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "unit_id": "1",
+        "commandDelay": "1",
+        "clientTimeout": "1000",
+        "reconnectTimeout": "2000"
+    },
+    {
+        "id": "f15fa5ec.b7c4b",
+        "type": "ui_group",
+        "z": "",
+        "name": "Reciever",
+        "tab": "d4b6f54e.12065",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d4b6f54e.12065",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
