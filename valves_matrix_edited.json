@@ -1,0 +1,20 @@
+[
+    {
+        "id": "456c849f.b1a46c",
+        "type": "FSM",
+        "z": "f083f1a1.3c6738",
+        "name": "test",
+        "topic": "test",
+        "initstate": "test",
+        "inittran": "TR_INIT",
+        "entry": false,
+        "exit": false,
+        "tran": true,
+        "rules": [{"n": "CLOSED__error__FAULT__log_error", "c": "error", "s": "CLOSED", "d": "FAULT", "t": "true"}, {"n": "CLOSED__signal_open_recieved__FAULT__log_error", "c": "signal_open_recieved", "s": "CLOSED", "d": "FAULT", "t": "true"}, {"n": "CLOSED__command_open_recieved__OPENING__open;start_timer_opening", "c": "command_open_recieved", "s": "CLOSED", "d": "OPENING", "t": "true"}, {"n": "CLOSING__signal_open_recieved__CLOSING__log_error", "c": "signal_open_recieved", "s": "CLOSING", "d": "CLOSING", "t": "true"}, {"n": "CLOSING__signal_closed_recieved__CLOSED__reset_timer_closing", "c": "signal_closed_recieved", "s": "CLOSING", "d": "CLOSED", "t": "true"}, {"n": "CLOSING__error__FAULT__log_error", "c": "error", "s": "CLOSING", "d": "FAULT", "t": "true"}, {"n": "CLOSING__timer_up_closing__FAULT__alert_error;log_error", "c": "timer_up_closing", "s": "CLOSING", "d": "FAULT", "t": "true"}, {"n": "CLOSING__command_open_recieved__OPENING__open;start_timer_opening;reset_timer_closing", "c": "command_open_recieved", "s": "CLOSING", "d": "OPENING", "t": "true"}, {"n": "FAULT__error__FAULT__log_error", "c": "error", "s": "FAULT", "d": "FAULT", "t": "true"}, {"n": "FAULT__ack_fault_recieved__INIT__log_error", "c": "ack_fault_recieved", "s": "FAULT", "d": "INIT", "t": "true"}, {"n": "INIT__command_close_recieved__CLOSING__close;start_timer_closing", "c": "command_close_recieved", "s": "INIT", "d": "CLOSING", "t": "true"}, {"n": "INIT__error__FAULT__log_error", "c": "error", "s": "INIT", "d": "FAULT", "t": "true"}, {"n": "INIT__command_open_recieved__OPENING__open;start_timer_opnening", "c": "command_open_recieved", "s": "INIT", "d": "OPENING", "t": "true"}, {"n": "OPEN__command_close_recieved__CLOSING__close;start_timer_closing", "c": "command_close_recieved", "s": "OPEN", "d": "CLOSING", "t": "true"}, {"n": "OPEN__error__FAULT__log_error", "c": "error", "s": "OPEN", "d": "FAULT", "t": "true"}, {"n": "OPEN__signal_closed_recieved__FAULT__log_error", "c": "signal_closed_recieved", "s": "OPEN", "d": "FAULT", "t": "true"}, {"n": "OPENING__command_close_recieved__CLOSING__close;start_timer_closing;reset_timer_opening", "c": "command_close_recieved", "s": "OPENING", "d": "CLOSING", "t": "true"}, {"n": "OPENING__error__FAULT__log_error", "c": "error", "s": "OPENING", "d": "FAULT", "t": "true"}, {"n": "OPENING__signal_closed_recieved__FAULT__log_error", "c": "signal_closed_recieved", "s": "OPENING", "d": "FAULT", "t": "true"}, {"n": "OPENING__timer_up_opening__FAULT__alert_error;log_error", "c": "timer_up_opening", "s": "OPENING", "d": "FAULT", "t": "true"}, {"n": "OPENING__signal_open_recieved__OPEN__reset_timer_opening", "c": "signal_open_recieved", "s": "OPENING", "d": "OPEN", "t": "true"}],
+        "x": 400,
+        "y": 230,
+        "wires": [
+            []
+        ]
+    }
+]
